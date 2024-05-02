@@ -238,13 +238,12 @@
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <div class="wrapper">
             <div class="card-switch">
                 <label class="switch">
-                    <input type="checkbox" class="toggle">
+                    <input type="checkbox" class="toggle" action="">
                     <span class="slider"></span>
                     <span class="card-side"></span>
                     <div class="flip-card__inner">
@@ -258,42 +257,34 @@
                         </div>
                         <div class="flip-card__back">
                             <div class="title">Sign up</div>
-                            <form class="flip-card__form" action="">
-                                <input class="flip-card__input" name="accountType" placeholder="Account Type"
-                                    type="name">
-                                <input class="flip-card__input" name="address" placeholder=" Address" type="text">
-                                <input class="flip-card__input" name="gender" placeholder="Gender" type="text">
-                                <input class="flip-card__input" name="age" placeholder="Age" type="number">
-                                <input class="flip-card__input" name="email" placeholder="Email" type="email">
-                                <input class="flip-card__input" name="contact" placeholder="Contact Number"
-                                    type="password">
+                            <form class="flip-card__form" action="model/registerModel.php" method="POST">
+                                <input class="flip-card__input" name="user[accountType]" placeholder="Account Type" type="name">
+                                <input class="flip-card__input" name="user[address]" placeholder="Address" type="text">
+                                <input class="flip-card__input" name="user[gender]" placeholder="Gender" type="text">
+                                <input class="flip-card__input" name="user[age]" placeholder="Age" type="number">
+                                <input class="flip-card__input" name="user[email]" placeholder="Email" type="email">
+                                <input class="flip-card__input" name="user[contact]" placeholder="Contact Number" type="password">
+                            
                                 <h2>Bank Details</h2>
-                                <input class="flip-card__input" name="bankName" placeholder="Bank Name" type="text">
-                                <input class="flip-card__input" name="bankAccount" placeholder="Bank Account Number"
-                                    type="number">
-                                <input class="flip-card__input" name="cardName" placeholder="Card Holder's Name"
-                                    type="text">
-                                <span>put a message to make sure that card holder's name is correct to avoid transaction interruptions</span>
-                                <input 
-                                class="flip-card__input" name="tinNumber" placeholder="Tin Number" type="text">
+                                <input class="flip-card__input" name="user[bankName]" placeholder="Bank Name" type="text">
+                                <input class="flip-card__input" name="user[bankAccount]" placeholder="Bank Account Number" type="number">
+                                <input class="flip-card__input" name="user[cardName]" placeholder="Card Holder's Name" type="text">
+                                <span>Put a message to make sure that card holder's name is correct to avoid transaction interruptions</span>
+                                <input class="flip-card__input" name="user[tinNumber]" placeholder="Tin Number" type="text">
+                            
                                 <h2>Company</h2>
-                                <input class="flip-card__input" name="companyName" placeholder="Company Name"
-                                    type="text">
-                                <input class="flip-card__input" name="password" placeholder="Password" type="password">
-                                <input class="flip-card__input" name="companyAddress" placeholder="Company Address"
-                                    type="text">
-                                <input class="flip-card__input" name="companyContact" placeholder="Company Phone Number"
-                                    type="text">
-                                <span> put a message to put a number directed to their HR to confirm employment
-                                </span>
-                                <input class="flip-card__input" name="position" placeholder="Position" type="text">
-                                <input class="flip-card__input" name="position" placeholder="Monthly Earnings"
-                                    type="number">
-                                <input class="flip-card__input" name="uploadFile" type="file">
-                                <input class="flip-card__input" name="uploadFile" type="file">
-                                <input class="flip-card__input" name="uploadFile" type="file">
+                                <input class="flip-card__input" name="user[companyName]" placeholder="Company Name" type="text">
+                                <input class="flip-card__input" name="user[password]" placeholder="Password" type="password">
+                                <input class="flip-card__input" name="user[companyAddress]" placeholder="Company Address" type="text">
+                                <input class="flip-card__input" name="user[companyContact]" placeholder="Company Phone Number" type="text">
+                                <span>Put a message to put a number directed to their HR to confirm employment</span>
+                                <input class="flip-card__input" name="user[position]" placeholder="Position" type="text">
+                                <input class="flip-card__input" name="user[monthlyEarnings]" placeholder="Monthly Earnings" type="number">
+                                <input class="flip-card__input" name="user[uploadFile1]" type="file">
+                                <input class="flip-card__input" name="user[uploadFile2]" type="file">
+                                <input class="flip-card__input" name="user[uploadFile3]" type="file">
                                 <button class="flip-card__btn">Confirm!</button>
-                            </form>
+                            </form> 
                         </div>
                     </div>
                 </label>

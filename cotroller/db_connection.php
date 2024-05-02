@@ -32,27 +32,48 @@ class Database {
     public function getConnection() {
         return $this->conn;
     }
+
+    // Method to execute an INSERT query
+    public function insert($sql) {
+        if ($this->conn->query($sql) === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // Method to execute an UPDATE query
+    public function update($sql) {
+        if ($this->conn->query($sql) === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // Method to execute a DELETE query
+    public function delete($sql) {
+        if ($this->conn->query($sql) === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
-// Usage
 $servername = "localhost";
 $username = "root";
 $password = "";
 $database = "loan";
 
-// Create database object
 $databaseObj = new Database($servername, $username, $password, $database);
 
-// Connect to the database
 $databaseObj->connect();
 
-// Use the connection
 $conn = $databaseObj->getConnection();
 
-// Perform database operations here
-
-// Close the connection when done
 $databaseObj->close();
 ?>
+
 
 
