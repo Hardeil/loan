@@ -258,9 +258,17 @@
                         <div class="flip-card__back">
                             <div class="title">Sign up</div>
                             <form class="flip-card__form" action="model/registerModel.php" method="POST">
-                                <input class="flip-card__input" name="user[accountType]" placeholder="Account Type" type="name">
+                                <select class="flip-card__input" name="user[accountType]" id="">
+                                    <option value="" selected>Select Account Type</option>
+                                    <option value="basic">Basic</option>
+                                    <option value="premium">Premium</option>
+                                </select>
                                 <input class="flip-card__input" name="user[address]" placeholder="Address" type="text">
-                                <input class="flip-card__input" name="user[gender]" placeholder="Gender" type="text">
+                                <select class="flip-card__input" name="user[gender]" id="">
+                                    <option value="" selected>Select Gender Type</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
                                 <input class="flip-card__input" name="user[age]" placeholder="Age" type="number">
                                 <input class="flip-card__input" name="user[email]" placeholder="Email" type="email">
                                 <input class="flip-card__input" name="user[contact]" placeholder="Contact Number" type="password">
