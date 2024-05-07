@@ -138,7 +138,7 @@ if (isset($_POST['user'])) {
     $stmt->close();
     $databaseObj->close();
 
-    header("Location: ../index.php");
+    header("Location: ../index. php");
     exit;
 }
 
