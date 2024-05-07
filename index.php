@@ -278,6 +278,7 @@
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                 </select>
+                                <input class="flip-card__input" name="user[birthDate]" name="birthday" id="birthdate" type="date">
                                 <input class="flip-card__input" name="user[age]" placeholder="Age" type="number">
                                 <input class="flip-card__input" name="user[email]" placeholder="Email" type="email">
                                 <input class="flip-card__input" name="user[contact]" placeholder="Contact Number" type="number">
@@ -323,7 +324,12 @@
             </div>
         </div>
     </div>
-
+                
 </body>
-
+<script>
+    function getAge(){
+        const bdate = document.getElementById('birthDates');
+        
+    }
+</script>
 </html>

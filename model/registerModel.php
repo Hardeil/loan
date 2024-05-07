@@ -28,6 +28,7 @@ class User
         $this->accountType = $userData['accountType'];
         $this->address = $userData['address'];
         $this->gender = $userData['gender'];
+        $this->birthdate = $userData['birthDate'];
         $this->age = $userData['age'];
         $this->email = $userData['email'];
         $this->contact = $userData['contact'];
@@ -122,11 +123,11 @@ if (isset($_POST['user'])) {
     }
     
     $status = "0";
-    $sql = "INSERT INTO reg_tbl (reg_type, reg_add, reg_gend, reg_age, reg_email, reg_contact, reg_bankName, reg_bankAcc, reg_cardName, reg_tinNum, reg_companyName, reg_password, reg_companyAdd, reg_companyCon, reg_position, reg_monthly, reg_proofBil, reg_validId, reg_coe, reg_status)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO reg_tbl (reg_type, reg_add, reg_gend, reg_bdate, reg_age, reg_email, reg_contact, reg_bankName, reg_bankAcc, reg_cardName, reg_tinNum, reg_companyName, reg_password, reg_companyAdd, reg_companyCon, reg_position, reg_monthly, reg_proofBil, reg_validId, reg_coe, reg_status)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $databaseObj->getConnection()->prepare($sql);
-    $stmt->bind_param("sssissssssssssssssss", $userData['accountType'], $userData['address'], $userData['gender'], $userData['age'], $userData['email'], $userData['contact'], $userData['bankName'], $userData['bankAccount'], $userData['cardName'], $userData['tinNumber'], $userData['companyName'], $userData['password'], $userData['companyAddress'], $userData['companyContact'], $userData['position'], $userData['monthlyEarnings'], $uploadFile1, $uploadFile2, $uploadFile3, $status);
+    $stmt->bind_param("ssssissssssssssssssss", $userData['accountType'], $userData['address'], $userData['gender'], $userData['birthDate'], $userData['age'], $userData['email'], $userData['contact'], $userData['bankName'], $userData['bankAccount'], $userData['cardName'], $userData['tinNumber'], $userData['companyName'], $userData['password'], $userData['companyAddress'], $userData['companyContact'], $userData['position'], $userData['monthlyEarnings'], $uploadFile1, $uploadFile2, $uploadFile3, $status);
 
     if ($stmt->execute()) {
         $_SESSION['registration_success'] = "User registration successful!";

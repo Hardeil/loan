@@ -14,5 +14,10 @@
     <?php
         include_once "../component/dashNNav.php";
     ?>
+    <table>
+        <thead>
+            <tr></tr>
+        </thead>
+    </table>
 </body>
 </html>
