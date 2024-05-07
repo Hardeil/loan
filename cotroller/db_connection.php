@@ -35,30 +35,41 @@ class Database {
 
     // Method to execute an INSERT query
     public function insert($sql) {
-        if ($this->conn->query($sql) === TRUE) {
+        if (mysqli_query($this->conn, $sql)) {
             return true;
         } else {
             return false;
         }
     }
-
+    
     // Method to execute an UPDATE query
     public function update($sql) {
-        if ($this->conn->query($sql) === TRUE) {
+        if (mysqli_query($this->conn, $sql)) {
             return true;
         } else {
             return false;
         }
     }
-
+    
     // Method to execute a DELETE query
     public function delete($sql) {
-        if ($this->conn->query($sql) === TRUE) {
+        if (mysqli_query($this->conn, $sql)) {
             return true;
         } else {
             return false;
         }
     }
+    
+    public function count($sql) {
+        $result = mysqli_query($this->conn, $sql);
+        if ($result) {
+            $row = mysqli_fetch_assoc($result);
+            return $row['COUNT(reg_id)'];
+        } else {
+            return false;
+        }
+    }
+    
 }
 
 $servername = "localhost";

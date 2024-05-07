@@ -1,3 +1,6 @@
+<?php
+                                    session_start();
+                                ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +16,6 @@
         }
 
         .wrapper {
-
             --input-focus: #2d8cf0;
             --font-color: #F7418F;
             --font-color-sub: #F7418F;
@@ -121,8 +123,6 @@
             position: relative;
             background-color: transparent;
             perspective: 1000px;
-            /* width: 100%;
-    height: 100%; */
             text-align: center;
             transition: transform 0.8s;
             transform-style: preserve-3d;
@@ -236,6 +236,15 @@
         span,h2{
             color: #F7418F; 
         }
+        .error{
+            color:red;
+        }
+        .success{
+            color: green;
+        }
+        label{
+            color:var(--font-color);
+        }
     </style>
 </head>
 <body>
@@ -257,7 +266,7 @@
                         </div>
                         <div class="flip-card__back">
                             <div class="title">Sign up</div>
-                            <form class="flip-card__form" action="model/registerModel.php" method="POST">
+                            <form class="flip-card__form" action="model/registerModel.php" method="POST" enctype="multipart/form-data">
                                 <select class="flip-card__input" name="user[accountType]" id="">
                                     <option value="" selected>Select Account Type</option>
                                     <option value="basic">Basic</option>
@@ -271,7 +280,7 @@
                                 </select>
                                 <input class="flip-card__input" name="user[age]" placeholder="Age" type="number">
                                 <input class="flip-card__input" name="user[email]" placeholder="Email" type="email">
-                                <input class="flip-card__input" name="user[contact]" placeholder="Contact Number" type="password">
+                                <input class="flip-card__input" name="user[contact]" placeholder="Contact Number" type="number">
                             
                                 <h2>Bank Details</h2>
                                 <input class="flip-card__input" name="user[bankName]" placeholder="Bank Name" type="text">
@@ -282,15 +291,30 @@
                             
                                 <h2>Company</h2>
                                 <input class="flip-card__input" name="user[companyName]" placeholder="Company Name" type="text">
-                                <input class="flip-card__input" name="user[password]" placeholder="Password" type="password">
                                 <input class="flip-card__input" name="user[companyAddress]" placeholder="Company Address" type="text">
-                                <input class="flip-card__input" name="user[companyContact]" placeholder="Company Phone Number" type="text">
+                                <input class="flip-card__input" name="user[companyContact]" placeholder="Company Phone Number" type="number">
                                 <span>Put a message to put a number directed to their HR to confirm employment</span>
                                 <input class="flip-card__input" name="user[position]" placeholder="Position" type="text">
                                 <input class="flip-card__input" name="user[monthlyEarnings]" placeholder="Monthly Earnings" type="number">
+                                <label for="">Proof of Billing</label>
                                 <input class="flip-card__input" name="user[uploadFile1]" type="file">
+                                <label for="">Valid ID Primary</label>
                                 <input class="flip-card__input" name="user[uploadFile2]" type="file">
+                                <label for="">COE (Certificate of Employment)</label>
                                 <input class="flip-card__input" name="user[uploadFile3]" type="file">
+                                <input class="flip-card__input" name="user[password]" placeholder="Password" type="password">
+                                <span>
+                                    <?php
+                                              if (isset($_SESSION['registration_error'])) {
+                                                echo "<div class='error'>Error: {$_SESSION['registration_error']}</div>";
+                                                unset($_SESSION['registration_error']); 
+                                            }
+                                            if (isset($_SESSION['registration_success'])) {
+                                                echo "<div class='success'>{$_SESSION['registration_success']}</div>";
+                                                unset($_SESSION['registration_success']); 
+                                            }
+                                    ?>
+                                </span>
                                 <button class="flip-card__btn">Confirm!</button>
                             </form> 
                         </div>
